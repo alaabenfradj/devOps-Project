@@ -1,0 +1,62 @@
+version: "3.7"
+
+services:
+  mysqldb:
+    image: mysql:5.7
+    restart: unless-stopped
+    env_file: ./.env
+    networks:
+      - bored-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=$MYSQLDB_ROOT_PASSWORD
+      - MYSQL_DATABASE=$MYSQLDB_DATABASE
+    ports:
+      - "3310:3306"
+    volumes:
+      - db:/var/lib/mysql
+
+  angular-app:
+    image: alaabenfradj/front:latest
+    container_name: front_c
+    depends_on:
+      - tpachat
+    networks:
+      - bored-network
+    ports:
+      - "4200:4200"
+    volumes:
+      - fv:/var/lib/fv
+
+  tpachat:
+    depends_on:
+      - mysqldb
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: tpachat-image
+    container_name: tpachat-container
+    restart: on-failure
+    env_file: ./.env
+    ports:
+      - "8089:8089"
+    networks:
+      - bored-network
+    environment:
+      SPRING_APPLICATION_JSON: '{
+        "spring.datasource.url"  : "jdbc:mysql://192.168.149.48:3310/$MYSQLDB_DATABASE?useSSL=false",
+        "spring.datasource.username" : "$MYSQLDB_USER",
+        "spring.datasource.password" : "$MYSQLDB_ROOT_PASSWORD",
+        "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect",
+        "spring.jpa.hibernate.ddl-auto" : "update"
+      }'
+    volumes:
+      - .m2:/var/lib/tpachat
+    stdin_open: true
+    tty: true
+networks:
+  bored-network:
+    name: bored-network
+volumes:
+  db:
+  .m2:
+  fv:

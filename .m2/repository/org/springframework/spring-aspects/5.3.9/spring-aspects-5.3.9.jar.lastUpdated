@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Fri Nov 04 20:39:03 UTC 2022
+@default-central-https\://repo.maven.apache.org/maven2/.lastUpdated=1667594343858
+https\://repo.maven.apache.org/maven2/.error=Could not transfer artifact org.springframework\:spring-aspects\:jar\:5.3.9 from/to central (https\://repo.maven.apache.org/maven2)\: transfer failed for https\://repo.maven.apache.org/maven2/org/springframework/spring-aspects/5.3.9/spring-aspects-5.3.9.jar

@@ -1,0 +1,7 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Fri Nov 04 21:05:50 UTC 2022
+@default-spring-libs-release-https\://repo.spring.io/libs-release/.lastUpdated=1667594355676
+https\://repo.spring.io/libs-snapshot/.error=Could not transfer artifact org.springframework\:spring-context\:jar\:5.3.9 from/to spring-libs-snapshot (https\://repo.spring.io/libs-snapshot)\: transfer failed for https\://repo.spring.io/libs-snapshot/org/springframework/spring-context/5.3.9/spring-context-5.3.9.jar
+https\://repo.spring.io/libs-release/.error=Could not transfer artifact org.springframework\:spring-context\:jar\:5.3.9 from/to spring-libs-release (https\://repo.spring.io/libs-release)\: transfer failed for https\://repo.spring.io/libs-release/org/springframework/spring-context/5.3.9/spring-context-5.3.9.jar
+https\://repo.maven.apache.org/maven2/.lastUpdated=1667595950718
+@default-spring-libs-snapshot-https\://repo.spring.io/libs-snapshot/.lastUpdated=1667594355747
